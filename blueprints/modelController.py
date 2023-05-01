@@ -28,9 +28,13 @@ def train_model():
 # 获得所有模型训练记录
 @modelBlueprint.get("/all")
 def get_process():
-    models = CNNModel.query.all()
+    # 当前的页码，默认为1
+    page = request.args.get("page", default=1, type=int)
+    # 每页的数量
+    page_size = request.args.get("page_size", default=15, type=int)
+    models = CNNModel.query.paginate(page=page, per_page=page_size)
     res = []
-    for item in models:
+    for item in models.items:
         item_data = {
             "uuid": item.id,
             "name": item.name,
@@ -39,7 +43,14 @@ def get_process():
             "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S'),
         }
         res.append(item_data)
-    return resDTO(data=res)
+    result = {
+        "total": models.total,
+        "page": models.page,
+        "page_size": models.per_page,
+        "total_pages": models.pages,
+        "data": res
+    }
+    return resDTO(data=result)
 
 
 # 根据uuid查询模型
@@ -90,9 +101,13 @@ def test_model():
 # 获得所有分类记录
 @modelBlueprint.get("/all_test_records")
 def getAllTestRecords():
-    items = Predict.query.all()
+    # 当前的页码，默认为1
+    page = request.args.get("page", default=1, type=int)
+    # 每页的数量
+    page_size = request.args.get("page_size", default=15, type=int)
+    pres = Predict.query.query.paginate(page=page, per_page=page_size)
     res = []
-    for item in items:
+    for item in pres.items:
         item_data = {
             "data_id": item.data_id,
             "model_id": item.model_id,
@@ -101,7 +116,14 @@ def getAllTestRecords():
             "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S'),
         }
         res.append(item_data)
-    return resDTO(data=res)
+    result = {
+        "total": pres.total,
+        "page": pres.page,
+        "page_size": pres.per_page,
+        "total_pages": pres.pages,
+        "data": res
+    }
+    return resDTO(data=result)
 
 
 # 查询测试记录,通过uuid
