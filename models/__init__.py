@@ -1,3 +1,3 @@
 # 加载DRM
-from models.Student import *
-from models.User import *
+from models.record import *
+from models.cnnmodel import *

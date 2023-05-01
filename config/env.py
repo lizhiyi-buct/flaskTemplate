@@ -13,3 +13,13 @@ SQLALCHEMY_DATABASE_URI = DB_URI
 
 # 日志目录
 LOG_DIR = os.getenv('LOG_DIR', os.path.join(BASE_DIR, 'logs'))
+
+# 当前项目的目录
+DATA_ADDR = {
+    "addr": None,
+    "processed": None,
+    "model_save": None
+}
+
+# 维护的文件表
+FILE_HASH = {}

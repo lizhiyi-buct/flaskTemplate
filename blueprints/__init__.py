@@ -1,5 +1,7 @@
-from blueprints.baseController import base
+from blueprints.fileController import filesBlueprint
+from blueprints.modelController import modelBlueprint
 
 blueprint_list = [
-    base,
+    filesBlueprint,
+    modelBlueprint,
 ]
