@@ -38,7 +38,7 @@ def chose_file():
     return resDTO()
 
 
-# 查询文件处理结果
+# 查询所有文件处理结果
 @filesBlueprint.get("/process_progress")
 def get_progress():
     records = Record.query.all()
@@ -52,6 +52,40 @@ def get_progress():
             "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S')
         }
         res.append(item_data)
+    return resDTO(data=res)
+
+
+# 根据uuid查询文件处理结果
+@filesBlueprint.get("/query_process_progress_uuid")
+def queryRecordByUUID():
+    record_id = request.args.get("uuid")
+    item = Record.query.filter_by(id=record_id)
+    item_data = {
+        "uuid": item.id,
+        "ids": item.ids,
+        "addr": item.addr,
+        "is_completed": item.is_completed,
+        "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S')
+    }
+    return resDTO(data=item_data)
+
+
+# 根据文件序号查询文件处理结果,只支持传入一个序号
+@filesBlueprint.get("/query_process_progress_id")
+def queryRecordByID():
+    record_id = request.args.get("id")
+    records = Record.query.all()
+    res = []
+    for item in records:
+        if record_id in item.ids:
+            item_data = {
+                "uuid": item.id,
+                "ids": item.ids,
+                "addr": item.addr,
+                "is_completed": item.is_completed,
+                "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S')
+            }
+            res.append(item_data)
     return resDTO(data=res)
 
 

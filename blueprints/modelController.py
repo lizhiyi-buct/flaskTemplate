@@ -2,7 +2,12 @@ from flask import Blueprint, request, current_app
 from concurrent.futures import ThreadPoolExecutor
 from torch_model import trainAndSaveRecord
 from components.resFormat import resDTO, errDTO
-from models import CNNModel
+from models import CNNModel, Record, Predict
+from torch_model import evaTest
+from utils import UUIDGenerator
+from config import DATA_ADDR
+import os
+from components import db
 
 modelBlueprint = Blueprint('model', __name__, url_prefix='/model')
 
@@ -36,13 +41,64 @@ def get_process():
     return resDTO(data=res)
 
 
-# 测试训练
+# 选择测试数据和模型进行测试
 @modelBlueprint.post("/test")
 def test_model():
     data = request.get_json()
     # 预处理文件UUID
-    pre = data['pre']
+    pre_uuid = data['pre_uuid']
+    item = Record.query.filter_by(id=pre_uuid).first()
+    # 预处理文件的地址
+    pre_addr = item.addr
     # 模型UUID
-    model = data['model']
+    model_uuid = data['model_uuid']
+    model = CNNModel.query.filter_by(id=model_uuid).first()
+    model_addr = model.addr
+    # 生成测试结果的uuid
+    res_uuid = UUIDGenerator.generate_uuid()
+    res_addr = DATA_ADDR['processed'] + os.path.sep + res_uuid + ".csv"
+    # 数据入库
+    pre_item = Predict()
+    pre_item.data_id = pre_uuid
+    pre_item.model_id = model_uuid
+    pre_item.res_addr = res_addr
+    pre_item.is_completed = 0
+    db.session.add(pre_item)
+    db.session.commit()
     # 测试方法
-    # 返回记录
+    app = current_app._get_current_object()
+    executor.submit(evaTest, model_addr, pre_addr, res_addr, pre_uuid, model_uuid, (app, ))
+    return resDTO()
+
+
+# 获得所有测试记录
+@modelBlueprint.get("/all_test_records")
+def getAllTestRecords():
+    items = Predict.query.all()
+    res = []
+    for item in items:
+        item_data = {
+            "data_id": item.data_id,
+            "model_id": item.model_id,
+            "res_addr": item.res_addr,
+            "is_completed": item.is_completed,
+            "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S'),
+        }
+        res.append(item_data)
+    return resDTO(data=res)
+
+
+# 查询测试记录,通过uuid
+@modelBlueprint.get("queryTestByID")
+def queryTestRecord():
+    data_id = request.args.get("data_id")
+    model_id = request.args.get("model_id")
+    item = Predict.query.filter_by(data_id=data_id,model_id=model_id).first()
+    item_data = {
+        "data_id": item.data_id,
+        "model_id": item.model_id,
+        "res_addr": item.res_addr,
+        "is_completed": item.is_completed,
+        "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S'),
+    }
+    return resDTO(data=item_data)

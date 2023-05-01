@@ -74,3 +74,5 @@ Werkzeug==2.0.3
 wfdb==3.4.1
 wrapt==1.12.1
 zipp==3.6.0
+
+numpy~=1.19.5

@@ -115,3 +115,177 @@ Traceback (most recent call last):
   File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 57, in download_files
     uuid = data.get_json("uuid")
 AttributeError: 'ImmutableMultiDict' object has no attribute 'get_json'
+2023-05-01 14:18:30,645 | ERROR | invalid literal for int() with base 10: '-0.16104512001161447,-0.16951232550666517,-0.1782793579139222,-0.18666198560349492,-0.19526230046121731,-0.20242409798945732,-0.20890634070899042,-0.21481747809166735,-0.22180369473327885,-0.23162352
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 47, in test_model
+    generateTestSet(item.addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 66, in generateTestSet
+    Y = all_data[:, 0].astype('int32') - 1
+ValueError: invalid literal for int() with base 10: '-0.16104512001161447,-0.16951232550666517,-0.1782793579139222,-0.18666198560349492,-0.19526230046121731,-0.20242409798945732,-0.20890634070899042,-0.21481747809166735,-0.22180369473327885,-0.23162352
+2023-05-01 14:19:22,657 | ERROR | invalid literal for int() with base 10: '-0.16104512001161447,-0.16951232550666517,-0.1782793579139222,-0.18666198560349492,-0.19526230046121731,-0.20242409798945732,-0.20890634070899042,-0.21481747809166735,-0.22180369473327885,-0.23162352
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 47, in test_model
+    generateTestSet(item.addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 66, in generateTestSet
+    Y = all_data[:, 0].astype('int32') - 1
+ValueError: invalid literal for int() with base 10: '-0.16104512001161447,-0.16951232550666517,-0.1782793579139222,-0.18666198560349492,-0.19526230046121731,-0.20242409798945732,-0.20890634070899042,-0.21481747809166735,-0.22180369473327885,-0.23162352
+2023-05-01 14:54:14,486 | ERROR | train_size=0 should be either positive and smaller than the number of samples 4107 or a float in the (0, 1) range
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 47, in test_model
+    generateTestSet(item.addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 75, in generateTestSet
+    for train_index, test_index in sss.split(X, Y):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sklearn\model_selection\_split.py", line 1329, in split
+    for train, test in self._iter_indices(X, y, groups):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sklearn\model_selection\_split.py", line 1647, in _iter_indices
+    default_test_size=self._default_test_size)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sklearn\model_selection\_split.py", line 1763, in _validate_shuffle_split
+    '(0, 1) range'.format(train_size, n_samples))
+ValueError: train_size=0 should be either positive and smaller than the number of samples 4107 or a float in the (0, 1) range
+2023-05-01 15:13:47,586 | ERROR | 'pre_uuid'
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 45, in test_model
+    pre_uuid = data['pre_uuid']
+KeyError: 'pre_uuid'
+2023-05-01 15:15:00,239 | ERROR | Dimension out of range (expected to be in range of [-2, 1], but got 2)
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 54, in test_model
+    evaTest(model_addr, pre_addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 83, in evaTest
+    X_test = generateTestSet(set_addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 68, in generateTestSet
+    X_test = X_test.transpose(1, 2)
+IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
+2023-05-01 15:15:24,105 | ERROR | Dimension out of range (expected to be in range of [-2, 1], but got 2)
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 54, in test_model
+    evaTest(model_addr, pre_addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 83, in evaTest
+    X_test = generateTestSet(set_addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 68, in generateTestSet
+    X_test = X_test.transpose(1, 2)
+IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
+2023-05-01 15:15:49,517 | ERROR | Dimension out of range (expected to be in range of [-2, 1], but got 2)
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 54, in test_model
+    evaTest(model_addr, pre_addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 83, in evaTest
+    X_test = generateTestSet(set_addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 68, in generateTestSet
+    X_test = X_test.transpose(1, 2)
+IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
+2023-05-01 15:16:38,675 | ERROR | Dimension out of range (expected to be in range of [-2, 1], but got 2)
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 54, in test_model
+    evaTest(model_addr, pre_addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 83, in evaTest
+    X_test = generateTestSet(set_addr)
+  File "D:\Project\Money\flaskTemplate\torch_model\Test.py", line 68, in generateTestSet
+    X_test = X_test.transpose(1, 2)
+IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
+2023-05-01 16:22:52,912 | ERROR | (psycopg2.errors.UndefinedColumn) column "is_completed" of relation "predict" does not exist
+LINE 1: ...redict (data_id, model_id, res_addr, create_time, is_complet...
+                                                             ^
+
+[SQL: INSERT INTO predict (data_id, model_id, res_addr, create_time, is_completed) VALUES (%(data_id)s, %(model_id)s, %(res_addr)s, %(create_time)s, %(is_completed)s)]
+[parameters: {'data_id': '5d4a7805-67fa-4439-b9dd-b9413537b1da', 'model_id': '2515b243-eb4f-4731-b3db-0f9eeae462aa', 'res_addr': 'D:\\Project\\Money\\flaskTemplate\\processed\\472c3e74-ca2d-4736-af08-5173b17672d2.csv', 'create_time': '2023-05-01 16:22:08', 'is_completed': 0}]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\engine\base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column "is_completed" of relation "predict" does not exist
+LINE 1: ...redict (data_id, model_id, res_addr, create_time, is_complet...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 67, in test_model
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\session.py", line 1451, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\session.py", line 3446, in flush
+    self._flush(objects)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\session.py", line 3586, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\session.py", line 3546, in _flush
+    flush_context.execute()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 633, in execute
+    uow,
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\persistence.py", line 250, in save_obj
+    insert,
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\persistence.py", line 1098, in _emit_insert_statements
+    statement, multiparams, execution_options=execution_options
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\elements.py", line 335, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\engine\base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\engine\base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\engine\base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column "is_completed" of relation "predict" does not exist
+LINE 1: ...redict (data_id, model_id, res_addr, create_time, is_complet...
+                                                             ^
+
+[SQL: INSERT INTO predict (data_id, model_id, res_addr, create_time, is_completed) VALUES (%(data_id)s, %(model_id)s, %(res_addr)s, %(create_time)s, %(is_completed)s)]
+[parameters: {'data_id': '5d4a7805-67fa-4439-b9dd-b9413537b1da', 'model_id': '2515b243-eb4f-4731-b3db-0f9eeae462aa', 'res_addr': 'D:\\Project\\Money\\flaskTemplate\\processed\\472c3e74-ca2d-4736-af08-5173b17672d2.csv', 'create_time': '2023-05-01 16:22:08', 'is_completed': 0}]
+(Background on this error at: https://sqlalche.me/e/14/f405)
