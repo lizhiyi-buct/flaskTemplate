@@ -8,6 +8,7 @@ from utils import UUIDGenerator
 from config import DATA_ADDR
 import os
 from components import db
+from flask_paginate import Pagination
 
 modelBlueprint = Blueprint('model', __name__, url_prefix='/model')
 
@@ -24,7 +25,7 @@ def train_model():
     return resDTO()
 
 
-# 获得所有训练记录
+# 获得所有模型训练记录
 @modelBlueprint.get("/all")
 def get_process():
     models = CNNModel.query.all()
@@ -39,6 +40,21 @@ def get_process():
         }
         res.append(item_data)
     return resDTO(data=res)
+
+
+# 根据uuid查询模型
+@modelBlueprint.get("/queryModel")
+def queryModel():
+    model_id = request.args.get("model_id")
+    item = CNNModel.query.filter_by(id=model_id).first()
+    item_data = {
+        "uuid": item.id,
+        "name": item.name,
+        "addr": item.addr,
+        "is_completed": item.is_completed,
+        "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S'),
+    }
+    return resDTO(data=item_data)
 
 
 # 选择测试数据和模型进行测试
@@ -71,7 +87,7 @@ def test_model():
     return resDTO()
 
 
-# 获得所有测试记录
+# 获得所有分类记录
 @modelBlueprint.get("/all_test_records")
 def getAllTestRecords():
     items = Predict.query.all()
@@ -92,16 +108,18 @@ def getAllTestRecords():
 @modelBlueprint.get("/queryTestByID")
 def queryTestRecord():
     data_id = request.args.get("data_id")
-    model_id = request.args.get("model_id")
-    item = Predict.query.filter_by(data_id=data_id,model_id=model_id).first()
-    item_data = {
-        "data_id": item.data_id,
-        "model_id": item.model_id,
-        "res_addr": item.res_addr,
-        "is_completed": item.is_completed,
-        "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S'),
-    }
-    return resDTO(data=item_data)
+    item_list = Predict.query.filter_by(data_id=data_id).all()
+    res = []
+    for item in item_list:
+        item_data = {
+            "data_id": item.data_id,
+            "model_id": item.model_id,
+            "res_addr": item.res_addr,
+            "is_completed": item.is_completed,
+            "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S'),
+        }
+        res.append(item_data)
+    return resDTO(data=res)
 
 
 # 根据数据id和模型id下载分类好的文件

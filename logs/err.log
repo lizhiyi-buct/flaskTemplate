@@ -289,3 +289,120 @@ LINE 1: ...redict (data_id, model_id, res_addr, create_time, is_complet...
 [SQL: INSERT INTO predict (data_id, model_id, res_addr, create_time, is_completed) VALUES (%(data_id)s, %(model_id)s, %(res_addr)s, %(create_time)s, %(is_completed)s)]
 [parameters: {'data_id': '5d4a7805-67fa-4439-b9dd-b9413537b1da', 'model_id': '2515b243-eb4f-4731-b3db-0f9eeae462aa', 'res_addr': 'D:\\Project\\Money\\flaskTemplate\\processed\\472c3e74-ca2d-4736-af08-5173b17672d2.csv', 'create_time': '2023-05-01 16:22:08', 'is_completed': 0}]
 (Background on this error at: https://sqlalche.me/e/14/f405)
+2023-05-01 22:11:40,804 | ERROR | 'list' object has no attribute 'paginate'
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 73, in get_progress
+    records = Record.query.all().paginate(page=page, per_page=page_size)
+AttributeError: 'list' object has no attribute 'paginate'
+2023-05-01 22:25:02,106 | ERROR | Only '=', '!=', 'is_()', 'is_not()', 'is_distinct_from()', 'is_not_distinct_from()' operators can be used with None/True/False
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 118, in queryRecordByID
+    records = Record.query.filter(Record.ids.like(record_id)).paginate(page=page, per_page=page_size)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\attributes.py", line 317, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 1381, in like_op
+    return a.like(b, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\properties.py", line 426, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 1381, in like_op
+    return a.like(b, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\elements.py", line 870, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 1381, in like_op
+    return a.like(b, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\type_api.py", line 77, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 96, in _boolean_compare
+    "Only '=', '!=', 'is_()', 'is_not()', "
+sqlalchemy.exc.ArgumentError: Only '=', '!=', 'is_()', 'is_not()', 'is_distinct_from()', 'is_not_distinct_from()' operators can be used with None/True/False
+2023-05-01 22:25:35,554 | ERROR | Only '=', '!=', 'is_()', 'is_not()', 'is_distinct_from()', 'is_not_distinct_from()' operators can be used with None/True/False
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 118, in queryRecordByID
+    records = Record.query.filter(Record.ids.like(record_id)).paginate(page=page, per_page=page_size)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\attributes.py", line 317, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 1381, in like_op
+    return a.like(b, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\properties.py", line 426, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 1381, in like_op
+    return a.like(b, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\elements.py", line 870, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 1381, in like_op
+    return a.like(b, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\type_api.py", line 77, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 96, in _boolean_compare
+    "Only '=', '!=', 'is_()', 'is_not()', "
+sqlalchemy.exc.ArgumentError: Only '=', '!=', 'is_()', 'is_not()', 'is_distinct_from()', 'is_not_distinct_from()' operators can be used with None/True/False
+2023-05-01 22:25:41,411 | ERROR | Only '=', '!=', 'is_()', 'is_not()', 'is_distinct_from()', 'is_not_distinct_from()' operators can be used with None/True/False
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 118, in queryRecordByID
+    records = Record.query.filter(Record.ids.like(record_id)).paginate(page=page, per_page=page_size)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\attributes.py", line 317, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 1381, in like_op
+    return a.like(b, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\orm\properties.py", line 426, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 1381, in like_op
+    return a.like(b, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\elements.py", line 870, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 1381, in like_op
+    return a.like(b, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\operators.py", line 523, in like
+    return self.operate(like_op, other, escape=escape)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\type_api.py", line 77, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "D:\Background\conda\envs\flask365\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 96, in _boolean_compare
+    "Only '=', '!=', 'is_()', 'is_not()', "
+sqlalchemy.exc.ArgumentError: Only '=', '!=', 'is_()', 'is_not()', 'is_distinct_from()', 'is_not_distinct_from()' operators can be used with None/True/False
+2023-05-01 22:26:39,276 | ERROR | must be str, not NoneType
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 118, in queryRecordByID
+    records = Record.query.filter(Record.ids.like('%'+record_id+"%")).paginate(page=page, per_page=page_size)
+TypeError: must be str, not NoneType
