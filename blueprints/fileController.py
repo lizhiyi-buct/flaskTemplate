@@ -49,7 +49,7 @@ def get_progress():
             "ids": item.ids,
             "addr": item.addr,
             "is_completed": item.is_completed,
-            "create_time": item.create_time
+            "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S')
         }
         res.append(item_data)
     return resDTO(data=res)

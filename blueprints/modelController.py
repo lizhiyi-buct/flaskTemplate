@@ -30,9 +30,19 @@ def get_process():
             "name": item.name,
             "addr": item.addr,
             "is_completed": item.is_completed,
-            "create_time": item.create_time,
+            "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S'),
         }
         res.append(item_data)
     return resDTO(data=res)
 
+
 # 测试训练
+@modelBlueprint.post("/test")
+def test_model():
+    data = request.get_json()
+    # 预处理文件UUID
+    pre = data['pre']
+    # 模型UUID
+    model = data['model']
+    # 测试方法
+    # 返回记录
