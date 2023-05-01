@@ -1,4 +1,4 @@
-from flask import Blueprint, request, current_app
+from flask import Blueprint, request, current_app, send_file
 from concurrent.futures import ThreadPoolExecutor
 from torch_model import trainAndSaveRecord
 from components.resFormat import resDTO, errDTO
@@ -89,7 +89,7 @@ def getAllTestRecords():
 
 
 # 查询测试记录,通过uuid
-@modelBlueprint.get("queryTestByID")
+@modelBlueprint.get("/queryTestByID")
 def queryTestRecord():
     data_id = request.args.get("data_id")
     model_id = request.args.get("model_id")
@@ -102,3 +102,16 @@ def queryTestRecord():
         "create_time": item.create_time.strftime('%Y-%m-%d %H:%M:%S'),
     }
     return resDTO(data=item_data)
+
+
+# 根据数据id和模型id下载分类好的文件
+@modelBlueprint.get("/downloadPredict")
+def downloadPredict():
+    data_id = request.args.get("data_id")
+    model_id = request.args.get("model_id")
+    item = Predict.query.filter_by(data_id=data_id, model_id=model_id).first()
+    # 生成文件名称 ids-model.csv
+    record = Record.query.filter_by(id=data_id).first()
+    model = CNNModel.query.filter_by(id=model_id).first()
+    file_name = record.ids + "-" + model.name + ".csv"
+    return send_file(item.res_addr, as_attachment=True, attachment_filename=file_name)
