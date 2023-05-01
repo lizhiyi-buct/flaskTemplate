@@ -74,11 +74,14 @@ def test_model():
     data = request.get_json()
     # 预处理文件UUID
     pre_uuid = data['pre_uuid']
+    # 模型UUID
+    model_uuid = data['model_uuid']
+    query = Predict.query.filter_by(data_id=pre_uuid, model_id=model_uuid).first()
+    if query:
+        return resDTO()
     item = Record.query.filter_by(id=pre_uuid).first()
     # 预处理文件的地址
     pre_addr = item.addr
-    # 模型UUID
-    model_uuid = data['model_uuid']
     model = CNNModel.query.filter_by(id=model_uuid).first()
     model_addr = model.addr
     # 生成测试结果的uuid

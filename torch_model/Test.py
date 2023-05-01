@@ -65,8 +65,9 @@ def generateTestSet(addr):
     all_data = pd.read_csv(addr).values.astype('float32')
     X = all_data[:, :].astype('float32')
     X_test = torch.tensor(X)
+    temp = X_test.numpy()
     X_test = X_test.unsqueeze(1)
-    return X_test
+    return X_test, temp
 
 
 # 加载模型通过模型文件保存地址
@@ -81,12 +82,14 @@ def loadModelByUUID(addr):
 # 模型分类
 def evaTest(model_addr, set_addr, save_addr, pre_uuid, model_uuid, current_app):
     current_app = current_app[0]
-    X_test = generateTestSet(set_addr)
+    X_test, temp = generateTestSet(set_addr)
     model = loadModelByUUID(model_addr)
     y_hat = model(X_test)
     # 取概率最大的标签作为最后的标签
     y_hat_idx = torch.argmax(y_hat, dim=1).numpy()
-    pd.DataFrame(y_hat_idx).to_csv(save_addr, header=False, index=False)
+    y_hat_idx = y_hat_idx.reshape(-1, 1)
+    df = np.concatenate((y_hat_idx, temp), axis=1)
+    pd.DataFrame(df).to_csv(save_addr, header=False, index=False)
     with current_app.app_context():
         # 更新数据
         update = Predict.query.filter_by(data_id=pre_uuid, model_id=model_uuid).first()
