@@ -108,7 +108,7 @@ def getAllTestRecords():
     page = request.args.get("page", default=1, type=int)
     # 每页的数量
     page_size = request.args.get("page_size", default=15, type=int)
-    pres = Predict.query.query.paginate(page=page, per_page=page_size)
+    pres = Predict.query.paginate(page=page, per_page=page_size)
     res = []
     for item in pres.items:
         item_data = {

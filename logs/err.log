@@ -406,3 +406,48 @@ Traceback (most recent call last):
   File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 118, in queryRecordByID
     records = Record.query.filter(Record.ids.like('%'+record_id+"%")).paginate(page=page, per_page=page_size)
 TypeError: must be str, not NoneType
+2023-05-01 23:41:53,413 | ERROR | 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 61, in chose_file
+    ids = '-'.join([str(elem) for elem in chose])
+TypeError: 'NoneType' object is not iterable
+2023-05-01 23:42:28,349 | ERROR | 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 61, in chose_file
+    ids = '-'.join([str(elem) for elem in chose])
+TypeError: 'NoneType' object is not iterable
+2023-05-01 23:51:32,303 | ERROR | 'BaseQuery' object has no attribute 'id'
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 108, in queryRecordByUUID
+    "uuid": item.id,
+AttributeError: 'BaseQuery' object has no attribute 'id'
+2023-05-01 23:52:38,348 | ERROR | 'BaseQuery' object has no attribute 'id'
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\fileController.py", line 108, in queryRecordByUUID
+    "uuid": item.id,
+AttributeError: 'BaseQuery' object has no attribute 'id'
+2023-05-01 23:59:47,718 | ERROR | 'BaseQuery' object has no attribute 'query'
+Traceback (most recent call last):
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Background\conda\envs\flask365\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "D:\Project\Money\flaskTemplate\blueprints\modelController.py", line 111, in getAllTestRecords
+    pres = Predict.query.query.paginate(page=page, per_page=page_size)
+AttributeError: 'BaseQuery' object has no attribute 'query'

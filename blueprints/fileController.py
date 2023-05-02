@@ -1,3 +1,5 @@
+import os
+
 from flask import Blueprint, request, send_file, current_app
 from config.env import DATA_ADDR, FILE_HASH
 from utils.file_utils import dfs_files
@@ -36,7 +38,7 @@ def get_origin_list():
     data_page = data[offset:offset + limit]
     res = []
     for item in data_page:
-        id = item.split("\\")[-1].split('.')[0]
+        id = item.split(os.path.sep)[-1].split('.')[0]
         item_data = {
             "id": id,
             "file_addr": item
@@ -57,7 +59,8 @@ def get_origin_list():
 def chose_file():
     data = request.get_json()
     # 从小到大排序
-    chose = data['files'].sort()
+    chose = data['files']
+    chose.sort()
     ids = '-'.join([str(elem) for elem in chose])
     query = Record.query.filter_by(ids=ids).first()
     if query:
@@ -102,7 +105,7 @@ def get_progress():
 @filesBlueprint.get("/query_process_progress_uuid")
 def queryRecordByUUID():
     record_id = request.args.get("uuid")
-    item = Record.query.filter_by(id=record_id)
+    item = Record.query.filter_by(id=record_id).first()
     item_data = {
         "uuid": item.id,
         "ids": item.ids,
