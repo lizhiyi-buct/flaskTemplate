@@ -1,12 +1,104 @@
-2023-04-30 21:10:24,775 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 101 号心电数据...
+2023-05-02 21:34:42,957 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 100 号心电数据...
 
-2023-04-30 21:10:24,846 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 100 号心电数据...
+2023-05-02 21:34:43,051 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 101 号心电数据...
 
-2023-04-30 21:13:05,597 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 101 号心电数据...
+2023-05-02 21:34:43,147 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 102 号心电数据...
 
-2023-04-30 21:13:05,707 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 100 号心电数据...
+2023-05-02 21:37:04,243 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:97 | 开始读取数据
 
-2023-05-01 15:57:18,275 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 101 号心电数据...
+2023-05-02 21:37:04,245 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 100 号心电数据...
 
-2023-05-01 15:57:18,350 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 100 号心电数据...
+2023-05-02 21:37:04,299 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 101 号心电数据...
+
+2023-05-02 21:37:04,349 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 102 号心电数据...
+
+2023-05-02 21:38:16,292 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:97 | 开始读取数据
+
+2023-05-02 21:38:16,293 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 100 号心电数据...
+
+2023-05-02 21:38:16,351 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 101 号心电数据...
+
+2023-05-02 21:38:16,399 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 103 号心电数据...
+
+2023-05-02 21:38:16,460 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:101 | 开始处理数据
+
+2023-05-02 21:38:21,748 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:107 | 数据处理完成
+
+2023-05-02 21:38:39,589 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:97 | 开始读取数据
+
+2023-05-02 21:38:39,590 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 100 号心电数据...
+
+2023-05-02 21:38:39,646 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 101 号心电数据...
+
+2023-05-02 21:38:39,695 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 103 号心电数据...
+
+2023-05-02 21:38:39,747 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 105 号心电数据...
+
+2023-05-02 21:38:39,814 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:101 | 开始处理数据
+
+2023-05-02 21:38:50,865 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:107 | 数据处理完成
+
+2023-05-02 21:39:03,684 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:97 | 开始读取数据
+
+2023-05-02 21:39:03,685 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 106 号心电数据...
+
+2023-05-02 21:39:03,754 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 107 号心电数据...
+
+2023-05-02 21:39:03,810 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:101 | 开始处理数据
+
+2023-05-02 21:39:04,357 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:107 | 数据处理完成
+
+2023-05-02 21:39:15,950 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:97 | 开始读取数据
+
+2023-05-02 21:39:15,952 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 108 号心电数据...
+
+2023-05-02 21:39:16,087 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 109 号心电数据...
+
+2023-05-02 21:39:16,224 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:101 | 开始处理数据
+
+2023-05-02 21:39:21,750 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:107 | 数据处理完成
+
+2023-05-02 21:39:23,024 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:97 | 开始读取数据
+
+2023-05-02 21:39:23,031 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 111 号心电数据...
+
+2023-05-02 21:39:23,152 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 112 号心电数据...
+
+2023-05-02 21:39:23,289 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 113 号心电数据...
+
+2023-05-02 21:39:23,385 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:101 | 开始处理数据
+
+2023-05-02 21:39:35,709 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:107 | 数据处理完成
+
+2023-05-02 21:39:58,658 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:97 | 开始读取数据
+
+2023-05-02 21:39:58,661 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 114 号心电数据...
+
+2023-05-02 21:39:58,775 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 115 号心电数据...
+
+2023-05-02 21:39:58,898 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:101 | 开始处理数据
+
+2023-05-02 21:40:03,021 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:107 | 数据处理完成
+
+2023-05-02 21:40:20,055 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:97 | 开始读取数据
+
+2023-05-02 21:40:20,057 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 100 号心电数据...
+
+2023-05-02 21:40:20,184 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 106 号心电数据...
+
+2023-05-02 21:40:20,336 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 107 号心电数据...
+
+2023-05-02 21:40:20,492 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:101 | 开始处理数据
+
+2023-05-02 21:40:26,077 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:107 | 数据处理完成
+
+2023-05-02 21:40:39,044 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:97 | 开始读取数据
+
+2023-05-02 21:40:39,050 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 108 号心电数据...
+
+2023-05-02 21:40:39,171 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#getDataSet:43 | 正在读取 113 号心电数据...
+
+2023-05-02 21:40:39,259 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:101 | 开始处理数据
+
+2023-05-02 21:40:42,757 | INFO | D:\Project\Money\flaskTemplate\torch_model\Process.py#data_process:107 | 数据处理完成
 

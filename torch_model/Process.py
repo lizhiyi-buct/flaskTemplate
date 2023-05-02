@@ -94,14 +94,17 @@ def data_process(file_ids, current_app):
 
         dataSet = []
         labelSet = []
+        log.info("开始读取数据")
         for n in tqdm(file_ids):
             getDataSet(n, dataSet, labelSet)
         dataset = None
+        log.info("开始处理数据")
         for data in tqdm(dataSet):
             if dataset is None:
                 dataset = data.reshape((1, -1))
                 continue
             dataset = np.concatenate([dataset, data.reshape((1, -1))], axis=0)
+        log.info("数据处理完成")
         pd.DataFrame(dataset).to_csv(sava_addr, header=False, index=False)
         # 记录更新
         with current_app.app_context():

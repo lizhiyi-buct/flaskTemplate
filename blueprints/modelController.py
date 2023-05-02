@@ -148,10 +148,11 @@ def queryTestRecord():
 
 
 # 根据数据id和模型id下载分类好的文件
-@modelBlueprint.get("/downloadPredict")
+@modelBlueprint.post("/downloadPredict")
 def downloadPredict():
-    data_id = request.args.get("data_id")
-    model_id = request.args.get("model_id")
+    data = request.get_json()
+    data_id = data['data_id']
+    model_id = data['model_id']
     item = Predict.query.filter_by(data_id=data_id, model_id=model_id).first()
     # 生成文件名称 ids-model.csv
     record = Record.query.filter_by(id=data_id).first()
